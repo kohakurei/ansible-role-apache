@@ -1,0 +1,12 @@
+---
+- include: Debian.yml
+  when: ansible_os_family == "Debian"
+
+- include: Redhat.yml
+  when: ansible_os_family == "Redhad"
+
+- name: Start apache2 service
+  service:
+    name: apache2
+    state: started
+    enabled: yes

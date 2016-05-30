@@ -1,0 +1,11 @@
+---
+- name: Update repository
+  apt:
+    update_cache: yes
+
+- name: Ensure apache2 packages
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - "{{ apache2_packages }}"
